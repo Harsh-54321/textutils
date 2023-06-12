@@ -41,17 +41,17 @@ export default function TextForm(props) {
             <div className="mb-3">
                 <textarea className="form-control" value = {text} onChange ={handleonchange} style={{backgroundColor: props.mode === 'dark' ? '#13466e' : 'white' , color: props.mode === 'dark' ? 'white' : 'black' }} id="mybox" rows="8"></textarea>
             </div>
-            <div className="d-flex justify-content-center align-items-center">
-                <button className='btn btn-primary mx-3' onClick={handleupclick}> Conver to UpperCase</button>
-                <button className='btn btn-primary mx-3' onClick={handleloclick}> Conver to LowerCase</button>
-                <button className='btn btn-primary mx-3' onClick={handlecopy}> Copy </button>
-                <button className='btn btn-primary mx-3' onClick={handleExtraSpace}> Extra Space </button>
+            <div className="d-flex justify-content-center align-items-center flex-wrap">
+                <button className='btn btn-primary mx-3 mb-3' onClick={handleupclick}> Conver to UpperCase</button>
+                <button className='btn btn-primary mx-3 mb-3' onClick={handleloclick}> Conver to LowerCase</button>
+                <button className='btn btn-primary mx-3 mb-3' onClick={handlecopy}> Copy </button>
+                <button className='btn btn-primary mx-3 mb-3' onClick={handleExtraSpace}> Extra Space </button>
             </div>
         </div>
         <div className="container my-3"s style={{color: props.mode === 'dark' ? 'white' : 'black'}}>
             <h2>Your Text summary</h2>
-            <p> {text.split(" ").length} Words, {text.length} characters</p>
-            <p>{0.008 * text.split(" ").length} Minuts to Read</p>
+            <p> {text.split(" ").filter((element) => {return element.length !== 0}).length} Words, {text.length} characters</p>
+            <p>{0.008 * text.split(" ").filter((element) => {return element.length !== 0}).length} Minuts to Read</p>
             <h2>Preview</h2>
             <p>{text.length > 0 ? text : "Enter something to preview it here."}</p>
         </div>
