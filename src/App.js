@@ -30,8 +30,7 @@ function App() {
       document.body.classList.remove('bg-warning');
    }
   const toggleMode = (cls) => {
-      removeclasses();
-      document.body.classList.add('bg-'+ cls)   
+      removeclasses();  
        if(mode === "light") {
           setMode("dark");
           document.body.style.backgroundColor= "gray";
